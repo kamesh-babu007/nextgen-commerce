@@ -9,7 +9,7 @@ const router = Router();
 router.get('/products', async (req, res) => {
   try {
     const { search, category } = req.query;
-    
+
     const where: any = {
       stock_quantity: { gt: 0 }
     };
@@ -17,7 +17,7 @@ router.get('/products', async (req, res) => {
     if (search) {
       where.name = { contains: String(search), mode: 'insensitive' };
     }
-    
+
     // Schema doesn't actually have 'category', but we can ignore it for now or implement if schema allows.
     // The schema only has name, description, price, stock_quantity.
 
@@ -52,7 +52,7 @@ router.post('/checkout', authenticateJWT, requireRole(['CUSTOMER']), async (req,
   }
 
   try {
-    await prisma.$transaction(async (tx) => {
+    await prisma.$transaction(async (tx: any) => {
       let totalPrice = 0;
       const orderItemsData = [];
 
