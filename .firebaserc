@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "nextgen-commerce-firebase"
-  }
+    "default": "nextgen-commerce"
+  },
+  "targets": {},
+  "etags": {}
 }
